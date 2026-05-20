@@ -3,6 +3,7 @@ package com.tlias.service;
 import com.tlias.common.Result;
 import com.tlias.model.dto.Deptdto;
 import com.tlias.model.po.Dept;
+import com.tlias.model.vo.Deptvo;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface DeptService {
     void deleteById(Integer id);
 
     void addDept(Deptdto dept);
+
+    Dept getDeptById(Integer id);
 }

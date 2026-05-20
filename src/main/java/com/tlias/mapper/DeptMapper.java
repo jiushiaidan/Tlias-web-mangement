@@ -1,6 +1,7 @@
 package com.tlias.mapper;
 import com.tlias.model.dto.Deptdto;
 import com.tlias.model.po.Dept;
+import com.tlias.model.vo.Deptvo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -14,5 +15,7 @@ public interface DeptMapper {
     @Delete("delete from tb_dept where id=#{id}")
     void deleteById(Integer id);
     @Update("insert into tb_dept(name) values(#{name})")
-    void addDept(Deptdto dept);
+    void addDept(Dept dept);
+    @Select("select * from tb_dept where id=#{id}")
+    Dept getDeptById(Integer id);
 }

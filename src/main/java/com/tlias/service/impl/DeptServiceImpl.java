@@ -3,6 +3,7 @@ package com.tlias.service.impl;
 import com.tlias.mapper.DeptMapper;
 import com.tlias.model.dto.Deptdto;
 import com.tlias.model.po.Dept;
+import com.tlias.model.vo.Deptvo;
 import com.tlias.service.DeptService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,12 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public void addDept(Deptdto dept) {
-        deptMapper.addDept(dept);
+        Dept depts = new Dept();
+        depts.setName(dept.getName());
+        deptMapper.addDept(depts);
+    }
+    @Override
+    public Dept getDeptById(Integer id) {
+        return deptMapper.getDeptById(id);
     }
 }
