@@ -1,5 +1,6 @@
 package com.tlias.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.tlias.mapper.DeptMapper;
 import com.tlias.model.dto.Deptdto;
 import com.tlias.model.po.Dept;
@@ -32,5 +33,10 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public Dept getDeptById(Integer id) {
         return deptMapper.getDeptById(id);
+    }
+    @Override
+    public void updateone(Deptdto dept) {
+        Dept depts= BeanUtil.copyProperties(dept,Dept.class);
+        deptMapper.updateone(depts);
     }
 }

@@ -14,27 +14,33 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController // @Controller + @ResponseBody(全返回json格式)
 @RequiredArgsConstructor
+@RequestMapping("/depts")
 public class DeptController {
      private final DeptService deptService;
-     @GetMapping("/depts")
+     @GetMapping
       public Result getDept(){
           return Result.success(deptService.getDept());
      }
 
-     @DeleteMapping("/depts")
+     @DeleteMapping
       public Result deleteById(Integer id){
          deptService.deleteById(id);
           return Result.success();
      }
 
-     @PostMapping("/depts")
+     @PostMapping
       public Result addDept(@RequestBody Deptdto dept){
          deptService.addDept(dept);
           return Result.success();
      }
-     @GetMapping("/depts/{id}")
+     @GetMapping("/{id}")
       public Result getDeptById(@PathVariable Integer id){
          Deptvo deptvo = BeanUtil.copyProperties(deptService.getDeptById(id),Deptvo.class);
          return Result.success(deptvo);
+     }
+     @PutMapping
+      public Result updateone(@RequestBody Deptdto dept){
+         deptService.updateone(dept);
+         return Result.success();
      }
 }

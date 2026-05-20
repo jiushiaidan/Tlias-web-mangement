@@ -18,4 +18,6 @@ public interface DeptMapper {
     void addDept(Dept dept);
     @Select("select * from tb_dept where id=#{id}")
     Dept getDeptById(Integer id);
+    @Update("update tb_dept set name=#{name} where id=#{id}")
+    void updateone(Dept depts);
 }

@@ -5,4 +5,5 @@ import lombok.*;
 @NoArgsConstructor
 public class Deptdto {
     private String name;
+    private Integer id;
 }

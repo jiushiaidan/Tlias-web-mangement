@@ -14,4 +14,6 @@ public interface DeptService {
     void addDept(Deptdto dept);
 
     Dept getDeptById(Integer id);
+
+    void updateone(Deptdto dept);
 }
