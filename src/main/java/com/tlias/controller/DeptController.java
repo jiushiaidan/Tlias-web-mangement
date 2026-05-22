@@ -35,7 +35,7 @@ public class DeptController {
      }
      @GetMapping("/{id}")
       public Result getDeptById(@PathVariable Integer id){
-         Deptvo deptvo = BeanUtil.copyProperties(deptService.getDeptById(id),Deptvo.class);
+         Deptvo deptvo = BeanUtil.toBean(deptService.getDeptById(id), Deptvo.class);
          return Result.success(deptvo);
      }
      @PutMapping
