@@ -1,5 +1,6 @@
 package com.tlias.controller;
 
+import com.tlias.common.PageEmpQuey;
 import com.tlias.common.PageResult;
 import com.tlias.common.Result;
 import com.tlias.service.EmpService;
@@ -18,12 +19,8 @@ import java.time.LocalDate;
 public class EmpController {
     private final EmpService empService;
     @GetMapping
-    public Result getPageEmp(String name, Integer gender,
-                             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
-                             @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end,
-                             @RequestParam(defaultValue = "1") Integer page,
-                             @RequestParam(defaultValue = "10") Integer pageSize){
-        PageResult pageEmp = empService.getPageEmp(name, gender, begin, end, page, pageSize);
+    public Result getPageEmp(PageEmpQuey pageEmpQuey){
+        PageResult pageEmp = empService.getPageEmp(pageEmpQuey);
         return Result.success(pageEmp);
     }
 }
